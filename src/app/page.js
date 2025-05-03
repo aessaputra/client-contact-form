@@ -65,72 +65,74 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-gray-50 py-12 px-4 sm:px-6 lg:px-8 flex items-center justify-center">
+    <div className="min-h-[calc(100vh-80px)] bg-gradient-to-br from-blue-50 to-gray-50 py-8 px-4 sm:px-6 lg:px-8 flex items-center justify-center">
       <div className="w-full max-w-2xl">
         <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
           <div className="bg-blue-600 py-4 px-6">
-            <h2 className="text-2xl font-bold text-white text-center">
+            <h2 className="text-xl md:text-2xl font-bold text-white text-center">
               Contact Us
             </h2>
-            <p className="mt-1 text-blue-100 text-center">
+            <p className="mt-1 text-blue-100 text-center text-sm md:text-base">
               We'd love to hear from you!
             </p>
           </div>
 
-          <div className="p-6 sm:p-8">
+          <div className="p-5 sm:p-6 md:p-7">
             {apiError && (
-              <div className="mb-6 p-4 bg-red-50 rounded-lg border border-red-200 text-red-600">
+              <div className="mb-4 p-3 bg-red-50 rounded-lg border border-red-200 text-red-600 text-sm">
                 <p>{apiError}</p>
               </div>
             )}
 
-            <form onSubmit={handleSubmit} className="space-y-5">
-              <div className="space-y-1">
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Full Name <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className={`block w-full px-4 py-2.5 rounded-lg border ${
-                    errors.name
-                      ? "border-red-300 focus:ring-red-200"
-                      : "border-gray-300 focus:ring-blue-200"
-                  } focus:ring-2 focus:outline-none transition`}
-                />
-                {errors.name && (
-                  <p className="text-sm text-red-600">{errors.name}</p>
-                )}
-              </div>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-1">
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Full Name <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    className={`block w-full px-3 py-2 rounded-lg border ${
+                      errors.name
+                        ? "border-red-300 focus:ring-red-200"
+                        : "border-gray-300 focus:ring-blue-200"
+                    } focus:ring-2 focus:outline-none transition`}
+                  />
+                  {errors.name && (
+                    <p className="text-xs text-red-600">{errors.name}</p>
+                  )}
+                </div>
 
-              <div className="space-y-1">
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Email <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className={`block w-full px-4 py-2.5 rounded-lg border ${
-                    errors.email
-                      ? "border-red-300 focus:ring-red-200"
-                      : "border-gray-300 focus:ring-blue-200"
-                  } focus:ring-2 focus:outline-none transition`}
-                />
-                {errors.email && (
-                  <p className="text-sm text-red-600">{errors.email}</p>
-                )}
+                <div className="space-y-1">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Email <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className={`block w-full px-3 py-2 rounded-lg border ${
+                      errors.email
+                        ? "border-red-300 focus:ring-red-200"
+                        : "border-gray-300 focus:ring-blue-200"
+                    } focus:ring-2 focus:outline-none transition`}
+                  />
+                  {errors.email && (
+                    <p className="text-xs text-red-600">{errors.email}</p>
+                  )}
+                </div>
               </div>
 
               <div className="space-y-1">
@@ -146,14 +148,14 @@ export default function ContactForm() {
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  className={`block w-full px-4 py-2.5 rounded-lg border ${
+                  className={`block w-full px-3 py-2 rounded-lg border ${
                     errors.phone
                       ? "border-red-300 focus:ring-red-200"
                       : "border-gray-300 focus:ring-blue-200"
                   } focus:ring-2 focus:outline-none transition`}
                 />
                 {errors.phone && (
-                  <p className="text-sm text-red-600">{errors.phone}</p>
+                  <p className="text-xs text-red-600">{errors.phone}</p>
                 )}
               </div>
 
@@ -167,25 +169,25 @@ export default function ContactForm() {
                 <textarea
                   id="message"
                   name="message"
-                  rows={4}
+                  rows={3}
                   value={formData.message}
                   onChange={handleChange}
-                  className={`block w-full px-4 py-2.5 rounded-lg border ${
+                  className={`block w-full px-3 py-2 rounded-lg border ${
                     errors.message
                       ? "border-red-300 focus:ring-red-200"
                       : "border-gray-300 focus:ring-blue-200"
                   } focus:ring-2 focus:outline-none transition`}
                 ></textarea>
                 {errors.message && (
-                  <p className="text-sm text-red-600">{errors.message}</p>
+                  <p className="text-xs text-red-600">{errors.message}</p>
                 )}
               </div>
 
-              <div className="pt-2">
+              <div className="pt-1">
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`w-full py-3 px-4 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium transition ${
+                  className={`w-full py-2.5 px-4 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium transition ${
                     isSubmitting ? "opacity-80 cursor-not-allowed" : ""
                   }`}
                 >
